@@ -149,6 +149,12 @@ bool MprisRemotePlugin::isPlaying() const
     return player ? player->playing() : false;
 }
 
+double MprisRemotePlugin::rate() const
+{
+    auto player = m_players.value(m_currentPlayer);
+    return player ? player->rate() : 1.0;
+}
+
 int MprisRemotePlugin::length() const
 {
     auto player = m_players.value(m_currentPlayer);

@@ -24,6 +24,7 @@ public:
     void parseNetworkPacket(const NetworkPacket &np);
     long position() const;
     void setPosition(long position);
+    double rate() const;
     void setLocalAlbumArtUrl(const QSharedPointer<LocalFile> &url);
     int volume() const;
     long length() const;
@@ -49,6 +50,7 @@ Q_SIGNALS:
     void positionChanged();
     void volumeChanged();
     void playingChanged();
+    void rateChanged();
 
 private:
     void albumArtFetched(const QString &player, const QString &remoteUrl, const QSharedPointer<LocalFile> &localPath);
@@ -62,6 +64,7 @@ private:
     bool m_canGoNext;
     int m_volume;
     long m_length;
+    double m_rate;
     long m_lastPosition;
     qint64 m_lastPositionTime;
     QString m_title;

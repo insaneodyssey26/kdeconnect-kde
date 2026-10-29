@@ -55,6 +55,6 @@ Loader {
         repeat: true
         running: updatePositionSlider && plugin.isPlaying
 
-        onTriggered: item.value = lastPosition + (new Date().getTime() - lastPositionTime.getTime())
+        onTriggered: item.value = lastPosition + (new Date().getTime() - lastPositionTime.getTime()) * (plugin.rate || 1.0)
     }
 }
