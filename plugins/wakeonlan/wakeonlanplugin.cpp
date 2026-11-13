@@ -29,6 +29,12 @@ K_PLUGIN_CLASS_WITH_JSON(WakeOnLanPlugin, "kdeconnect_wakeonlan.json")
 bool WakeOnLanPlugin::isWakeOnLanEnabled(const QString &interfaceName)
 {
 #ifdef Q_OS_LINUX
+    // Skip wireless interfaces as consumer WiFi rarely supports wake-on-wireless
+    if (QFile::exists(QStringLiteral("/sys/class/net/%1/wireless").arg(interfaceName))
+        || QFile::exists(QStringLiteral("/sys/class/net/%1/phy80211").arg(interfaceName))) {
+        return false;
+    }
+
     // 1. Try sysfs device wakeup state (requires no privileges)
     QFile wakeupFile(QStringLiteral("/sys/class/net/%1/device/power/wakeup").arg(interfaceName));
     if (wakeupFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
