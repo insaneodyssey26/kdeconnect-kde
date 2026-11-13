@@ -22,6 +22,7 @@ add_subdirectory(mousepad)
 add_subdirectory(sms)
 add_subdirectory(screensaver-inhibit)
 add_subdirectory(virtualmonitor)
+add_subdirectory(wakeonlan)
 
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
     find_package(KF6ModemManagerQt ${KF_MIN_VERSION})

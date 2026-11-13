@@ -1,0 +1,22 @@
+{
+    "$schema": "../kdeconnect.schema.json",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "albertvaka@gmail.com",
+                "Name": "Albert Vaca Cintora"
+            }
+        ],
+        "Description": "Announce MAC address for Wake-on-LAN when enabled",
+        "EnabledByDefault": true,
+        "Icon": "network-wired",
+        "License": "GPL",
+        "Name": "Wake on LAN"
+    },
+    "X-KdeConnect-OutgoingPacketType": [
+        "kdeconnect.wakeonlan"
+    ],
+    "X-KdeConnect-SupportedPacketType": [
+        "kdeconnect.wakeonlan"
+    ]
+}
